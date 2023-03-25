@@ -1,0 +1,13 @@
+{% extends 'base.html' %} {% block content %} {% if user.is_authenticated %}
+    <div class="col-md-6 offset-3">
+        <h2>Update Customer</h2>
+        <br>
+        <form action="{% url 'update_record' form.instance.id %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+            <button type="submit" class="btn btn-warning">Update Customer</button>
+        </form>
+    </div>
+
+{% endif %} {% endblock %}
